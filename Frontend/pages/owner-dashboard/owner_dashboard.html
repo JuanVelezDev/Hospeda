@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Dashboard</title>
+  <link rel="stylesheet" href="owner_dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">hospedaYa</div>
+    <nav>
+      <a href="#">My properties</a>
+      <a href="#">Publish Property</a>
+    </nav>
+    <div class="profile"><i class="fa-solid fa-user"></i>
+      <span>John Smith</span>
+      <i class="fas fa-sign-out-alt"></i>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <h1>Owner Dashboard</h1>
+    <p>Manage your property listings and rental requests</p>
+
+    <section class="stats">
+      <div class="stat-card">
+        <i class="fas fa-building"></i>
+        <div>
+          <h3>8</h3>
+          <p>Active Listings</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-hourglass-half"></i>
+        <div>
+          <h3>12</h3>
+          <p>Pending Requests</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-dollar-sign"></i>
+        <div>
+          <h3>$4,200</h3>
+          <p>Monthly Revenue</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cards-container">
+      <!-- My Listings -->
+      <section class="card">
+        <div class="card-header">
+          <h2>My Listings</h2>
+          <button class="btn-primary"><i class="fas fa-plus"></i> Add New Room</button>
+        </div>
+        <div class="listing">
+          <div class="listing-item">
+            <div>
+              <h3>Cozy Studio Near Campus</h3>
+              <p>Downtown Area</p>
+              <span class="price">$850/month</span>
+            </div>
+            <span class="status available">Available</span>
+          </div>
+          <div class="listing-item">
+            <div>
+              <h3>Bright Single Room</h3>
+              <p>University District</p>
+              <span class="price">$720/month</span>
+            </div>
+            <span class="status occupied">Occupied</span>
+          </div>
+          <div class="listing-item">
+            <div>
+              <h3>Shared Apartment</h3>
+              <p>Campus West</p>
+              <span class="price">$620/month</span>
+            </div>
+            <span class="status available">Available</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Received Requests -->
+      <section class="card">
+        <h2>Received Requests</h2>
+        <div class="request">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+          <div>
+            <p><strong>Emma Wilson</strong><br>Interested in Cozy Studio Near Campus</p>
+            <span>2 hours ago</span>
+          </div>
+          <div class="actions">
+            <button class="btn-accept">Accept</button>
+            <button class="btn-decline">Decline</button>
+          </div>
+        </div>
+        <div class="request">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+          <div>
+            <p><strong>Alex Chen</strong><br>Wants to view Bright Single Room</p>
+            <span>5 hours ago</span>
+          </div>
+          <div class="actions">
+            <button class="btn-accept">Accept</button>
+            <button class="btn-decline">Decline</button>
+          </div>
+        </div>
+        <div class="request">
+          <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="">
+          <div>
+            <p><strong>Sarah Johnson</strong><br>Inquiry about Shared Apartment</p>
+            <span>1 day ago</span>
+          </div>
+          <div class="actions">
+            <button class="btn-accept">Accept</button>
+            <button class="btn-decline">Decline</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- All Property Listings -->
+    <section class="all-listings">
+      <div class="header">
+        <h2>All Property Listings</h2>
+      </div>
+
+      <div class="properties">
+        <div class="property-card">
+          <img src="../images/student_booking/th.outside1888x823.6876f9ad08258_infocdn__uwmqfhlq5i5qcmvuhsvzd3shwercvusw0nczgwdojpg.jpg" alt="">
+          <div class="info">
+            <h3>Cozy Studio Near Campus</h3>
+            <p>Downtown Area • 1 bed, 1 bath</p>
+            <span class="price">$850/month</span>
+            <span class="status available">Available</span>
+            <p class="posted">Posted 3 days ago</p>
+          </div>
+          <div class="buttons">
+            <button class="edit"><i class="fas fa-edit"></i> Edit</button>
+            <button class="delete"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="../images/student_booking/th.outside1888x823.6851b0b880fbe_infocdn__hzw58lrkssuj6ldjmuvo3dic8hm76uuy3ujevm6ojpg.jpg" alt="">
+          <div class="info">
+            <h3>Bright Single Room</h3>
+            <p>University District • 1 bed, shared bath</p>
+            <span class="price">$720/month</span>
+            <span class="status occupied">Occupied</span>
+            <p class="posted">Posted 1 week ago</p>
+          </div>
+          <div class="buttons">
+            <button class="edit"><i class="fas fa-edit"></i> Edit</button>
+            <button class="delete"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="../images/student_booking/th.outside1888x823.689f6679154bb_infocdn__nrwxtaka9uyb2hlkpzw6hlqnxkr62ewsgp984to0jpg.jpg" alt="">
+          <div class="info">
+            <h3>Shared Apartment</h3>
+            <p>Campus West • 1 bed, shared facilities</p>
+            <span class="price">$620/month</span>
+            <span class="status available">Available</span>
+            <p class="posted">Posted 2 days ago</p>
+          </div>
+          <div class="buttons">
+            <button class="edit"><i class="fas fa-edit"></i> Edit</button>
+            <button class="delete"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
