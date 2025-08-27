@@ -12,29 +12,29 @@
     <main>
         <div class="register-container">
             <h1 class="register-title">Register</h1>
-            <form action="/register" method="POST" class="register-form">
-                <input type="text" id="first_name" name="first_name" required placeholder="First name" class="input-register"><br>
-
+            <form id="registerForm" class="register-form">
+                <input type="text" id="first_name" name="first_name" required placeholder="First name"
+                    class="input-register"><br>
                 <input type="text" id="last_name" name="last_name" placeholder="Last name" class="input-register"><br>
-
                 <input type="email" id="email" name="email" required placeholder="Email" class="input-register"><br>
-
-                <input type="password" id="password" name="password" required placeholder="Password" class="input-register"><br>
-
+                <input type="password" id="password" name="password" required placeholder="Password"
+                    class="input-register"><br>
                 <input type="text" id="phone" name="phone" placeholder="Phone" class="input-register"><br>
 
-                
                 <label for="role">Register as:</label>
                 <select id="role" name="role" required>
-                    <option value="student" class="button-option">Student</option>
+                    <option value="student">Student</option>
                     <option value="owner">Owner</option>
                 </select><br>
 
                 <button type="submit" class="register-button">Register</button>
             </form>
+            <p id="message" style="margin-top: 10px; font-weight: bold;"></p>
         </div>
     </main>
 
+    <!-- script externo -->
+    <script src="./js/register.js"></script>
 </body>
 
 </html>

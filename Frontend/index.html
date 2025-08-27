@@ -12,16 +12,18 @@
     <main>
         <div class="login-container">
             <h1 class="login-title">Login</h1>
-            <form action="/login" method="POST" class="login-form">
+            <form id="loginForm" class="login-form">
                 <input type="email" id="email" name="email" required placeholder="Email" class="email-input">
-
                 <input type="password" id="password" name="password" required placeholder="Password"
                     class="password-input">
-
                 <button type="submit" class="login-button">Login</button>
             </form>
+            <p id="message" style="margin-top: 10px; font-weight: bold;"></p>
         </div>
     </main>
 
+    <!-- script externo -->
+    <script src="./js/login.js"></script>
 </body>
+
 </html>
