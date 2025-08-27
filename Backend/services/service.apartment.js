@@ -1,25 +1,10 @@
-import express, { json } from 'express';
-import pkg from 'pg';
-import cors from 'cors';
+import { Router } from "express";
+import db from "../db.js";
 
-const { Pool } = pkg;
-
-const app = express();
-app.use(cors());
-app.use(json());
-
-// Configuración de PostgreSQL con datos reales
-const db = new Pool({
-    host: 'aws-1-us-east-2.pooler.supabase.com',
-    user: 'postgres.ejpxkahordytcdnfibdq',
-    password: 'dp4a1tJPFVi8lXNY', // remplaza con tu contraseña de Supabase
-    database: 'postgres',
-    port: 6543,
-    ssl: { rejectUnauthorized: false } // Supabase requiere SSL
-});
+const router = Router();
 
 // get apartment
-app.get('/apartment', async (req, res) => {
+router.get('/apartment', async (req, res) => {
     try {
         const { rows } = await db.query('SELECT * FROM apartment');
         res.json(rows);
@@ -29,9 +14,8 @@ app.get('/apartment', async (req, res) => {
 });
 
 
-
 // add apartment
-app.post('/apartment', async (req, res) => {
+router.post('/apartment', async (req, res) => {
     const { owner_id, title, description, address, city, price } = req.body;
     try {
         await db.query('INSERT INTO apartment (owner_id, title, description,address,city,price) VALUES ($1, $2,$3,$4,$5,$6)',
@@ -44,7 +28,7 @@ app.post('/apartment', async (req, res) => {
 
 
 // Update apartment
-app.put('/apartment/:id', async (req, res) => {
+router.put('/apartment/:id', async (req, res) => {
     const { id } = req.params;
     const { owner_id, title, description, address, city, price } = req.body;
     try {
@@ -60,7 +44,7 @@ app.put('/apartment/:id', async (req, res) => {
 });
 
 // Eliminar usuario
-app.delete('/apartment/:id', async (req, res) => {
+router.delete('/apartment/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await db.query('DELETE FROM apartment WHERE apartment_id = $1', [id]);
@@ -71,4 +55,4 @@ app.delete('/apartment/:id', async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log('Servidor corriendo en http://localhost:3000'));
+export default router;
