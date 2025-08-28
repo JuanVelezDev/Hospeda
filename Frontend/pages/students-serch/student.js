@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
+        // Limpiar localStorage
         localStorage.removeItem("user");
 
-        window.location.href = "../index.html";
+        // Usar ruta absoluta para evitar problemas de navegación
+        window.location.href = "../../index.html";
     });
 });

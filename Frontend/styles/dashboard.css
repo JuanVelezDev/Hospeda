@@ -60,6 +60,13 @@ body {
 .user-actions {
     display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+.user-name {
+    color: #666;
+    font-weight: 500;
+    margin-right: 1rem;
 }
 
 .btn {
