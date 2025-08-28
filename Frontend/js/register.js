@@ -22,8 +22,8 @@ form.addEventListener("submit", async (e) => {
 
         if (res.ok) {
             messageEl.style.color = "green";
-            messageEl.textContent = "✅ Registro exitoso. Ahora puedes iniciar sesión.";
-            // setTimeout(() => window.location.href = "index.html", 1500);
+            messageEl.textContent = "✅ Registro exitoso. Redirigiendo al login...";
+            setTimeout(() => window.location.href = "login.html", 1500);
         } else {
             messageEl.style.color = "red";
             messageEl.textContent = "❌ " + data.message;

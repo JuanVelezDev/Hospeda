@@ -36,6 +36,11 @@ body {
     font-weight: 700;
 }
 
+.logo-link {
+    color: inherit;
+    text-decoration: none;
+}
+
 .nav {
     display: flex;
     gap: 2rem;
