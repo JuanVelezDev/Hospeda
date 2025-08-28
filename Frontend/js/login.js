@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
             // Redirección según el rol
             setTimeout(() => {
                 if (data.user.role === "student") {
-                    window.location.href = "./students-serch/student.html";
+                    window.location.href = "./pages/students-serch/student.html";
                 } else if (data.user.role === "owner") {
                     window.location.href = "dashboard_owner.html";
                 } else {
