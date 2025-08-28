@@ -100,3 +100,41 @@ body{
     border-radius: 8px; 
     cursor: pointer;
 }
+
+/* Estilos para enlaces de navegación */
+.back-link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.register-link,
+.login-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register-link a,
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-link a:hover,
+.login-link a:hover {
+    text-decoration: underline;
+}
