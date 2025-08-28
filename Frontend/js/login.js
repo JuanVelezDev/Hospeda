@@ -28,9 +28,9 @@ form.addEventListener("submit", async (e) => {
                 if (data.user.role === "student") {
                     window.location.href = "./pages/students-serch/student.html";
                 } else if (data.user.role === "owner") {
-                    window.location.href = "dashboard_owner.html";
+                    window.location.href = "./pages/publish-property/index.html";
                 } else {
-                    window.location.href = "dashboard.html"; // fallback
+                    window.location.href = "index.html"; // fallback al dashboard
                 }
             }, 1500);
 
