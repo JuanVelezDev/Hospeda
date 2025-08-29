@@ -3,18 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const uploadArea = document.querySelector('.upload-area');
     const chooseFilesBtn = document.querySelector('.choose-files-btn');
     const fileInput = document.createElement('input');
-<<<<<<< HEAD
-    let selectedFiles = [];
-
-    fileInput.type = 'file';
-    fileInput.multiple = true;
-    fileInput.accept = 'image/*';
-
-    chooseFilesBtn.addEventListener('click', () => fileInput.click());
-    uploadArea.addEventListener('click', () => fileInput.click());
-
-    uploadArea.addEventListener('dragover', (e) => {
-=======
     const logoutBtn = document.querySelector('.logout-btn');
     
     // Configure file input
@@ -43,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Event for drag and drop
     uploadArea.addEventListener('dragover', function(e) {
->>>>>>> e6faa511a6f7059a509f33b9d3ce66ff7cb6122a
         e.preventDefault();
         uploadArea.style.borderColor = '#6b46c1';
         uploadArea.style.backgroundColor = '#f3f4f6';
