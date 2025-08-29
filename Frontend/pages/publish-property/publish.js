@@ -6,11 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadArea = document.querySelector('.upload-area');
     const chooseFilesBtn = document.querySelector('.choose-files-btn');
     const fileInput = document.createElement('input');
+    const logoutBtn = document.querySelector('.logout-btn');
     
     // Configure file input
     fileInput.type = 'file';
     fileInput.multiple = true;
     fileInput.accept = 'image/*';
+    
+    // Event for logout button
+    logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Clear user session from localStorage
+        localStorage.removeItem("user");
+        // Redirect to main landing page
+        window.location.href = '../../index.html';
+    });
     
     // Event for choose files button
     chooseFilesBtn.addEventListener('click', function() {
