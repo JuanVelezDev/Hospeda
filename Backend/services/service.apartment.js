@@ -39,16 +39,17 @@ router.get("/:apartment_id/photos", async (req, res) => {
 
 
 // ADD apartment
-router.post('/apartment', async (req, res) => {
-    const { owner_id, title, description, address, city, price } = req.body;
+router.post('/', async (req, res) => {
+    const { user_id, title, description, address, city, price } = req.body;
     try {
-        await db.query(
-            'INSERT INTO apartment (owner_id, title, description, address, city, price) VALUES ($1, $2, $3, $4, $5, $6)',
-            [owner_id, title, description, address, city, price]
+        const result = await db.query(
+            'INSERT INTO apartment (user_id, title, description, address, city, price) VALUES ($1,$2,$3,$4,$5,$6) RETURNING apartment_id',
+            [user_id, title, description, address, city, price]
         );
-        res.json({ message: 'Apartamento agregado' });
+        res.json({ apartment_id: result.rows[0].apartment_id });
     } catch (err) {
-        res.status(500).json(err);
+        console.error("❌ Error creando apartamento:", err);
+        res.status(500).json({ error: "Error creando apartamento" });
     }
 });
 
@@ -64,10 +65,7 @@ router.post("/:apartment_id/photo", upload.single("photo"), async (req, res) => 
             new Promise((resolve, reject) => {
                 const stream = cloudinary.uploader.upload_stream(
                     { folder: "apartments" },
-                    (error, result) => {
-                        if (result) resolve(result);
-                        else reject(error);
-                    }
+                    (error, result) => result ? resolve(result) : reject(error)
                 );
                 streamifier.createReadStream(fileBuffer).pipe(stream);
             });
@@ -76,28 +74,24 @@ router.post("/:apartment_id/photo", upload.single("photo"), async (req, res) => 
         const photo_url = result.secure_url;
 
         const dbResult = await db.query(
-            "INSERT INTO apartment_photo (apartment_id, photo_url, description) VALUES ($1, $2, $3) RETURNING *",
+            "INSERT INTO apartment_photo (apartment_id, photo_url, description) VALUES ($1,$2,$3) RETURNING *",
             [apartment_id, photo_url, description]
         );
 
-        res.json({
-            message: "📸 Foto subida y guardada en la DB",
-            photo: dbResult.rows[0],
-        });
+        res.json({ photo: dbResult.rows[0] });
     } catch (err) {
-        console.error(err);
+        console.error("❌ Error subiendo foto:", err);
         res.status(500).json({ error: "Error subiendo la foto" });
     }
 });
-
 // UPDATE apartment
-router.put('/apartment/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { owner_id, title, description, address, city, price } = req.body;
+    const { user_id, title, description, address, city, price } = req.body;
     try {
         const result = await db.query(
-            'UPDATE apartment SET owner_id=$1, title=$2, description=$3, address=$4, city=$5, price=$6 WHERE apartment_id=$7',
-            [owner_id, title, description, address, city, price, id]
+            'UPDATE apartment SET user_id=$1, title=$2, description=$3, address=$4, city=$5, price=$6 WHERE apartment_id=$7',
+            [user_id, title, description, address, city, price, id]
         );
         if (result.rowCount === 0) return res.status(404).json({ message: 'Apartamento no encontrado' });
         res.json({ message: 'Apartamento actualizado' });
@@ -107,7 +101,7 @@ router.put('/apartment/:id', async (req, res) => {
 });
 
 // DELETE apartment
-router.delete('/apartment/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await db.query('DELETE FROM apartment WHERE apartment_id=$1', [id]);
