@@ -32,9 +32,20 @@ body {
 }
 
 .logo h1 {
-    color: #1a365d;
+    color: #111827;
     font-size: 1.8rem;
     font-weight: 700;
+}
+
+.logo h1 a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logo h1 a:hover {
+    color: #4A90E2;
 }
 
 .nav {
@@ -157,7 +168,7 @@ body {
 .section-title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1a365d;
+    color: #111827;
 }
 
 .sort-button {
@@ -220,7 +231,7 @@ body {
 .room-title {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #1a365d;
+    color: #111827;
     margin-bottom: 0.5rem;
 }
 
