@@ -8,6 +8,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.createElement('input');
     const logoutBtn = document.querySelector('.logout-btn');
     
+    // Función para obtener y mostrar el nombre del usuario logueado
+    function displayUserName() {
+        const user = localStorage.getItem("user");
+        const userNameElement = document.querySelector('.nav-user .user-info span');
+        
+        if (user) {
+            const userData = JSON.parse(user);
+            
+            // Verificar que el usuario sea un owner
+            if (userData.role !== "owner") {
+                alert("Acceso denegado. Solo los propietarios pueden acceder a esta página.");
+                window.location.href = '../../index.html';
+                return;
+            }
+            
+            if (userData.name) {
+                userNameElement.textContent = userData.name;
+            } else {
+                userNameElement.textContent = "Usuario";
+            }
+        } else {
+            // Si no hay usuario logueado, redirigir al login
+            window.location.href = '../../login.html';
+        }
+    }
+    
+    // Mostrar el nombre del usuario al cargar la página
+    displayUserName();
+    
     // Configure file input
     fileInput.type = 'file';
     fileInput.multiple = true;
