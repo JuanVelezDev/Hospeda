@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node Backend/app.js",
     "dev": "node Backend/app.js",
-    "build": "echo 'Build completed'"
+    "build": "bash vercel-build.sh"
   },
   "keywords": ["hospedaje", "estudiantes", "alojamiento"],
   "author": "",
