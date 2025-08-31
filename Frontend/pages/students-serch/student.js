@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 🔹 Cargar apartamentos desde el backend
     async function loadApartments() {
         try {
-            const response = await fetch("http://localhost:3000/apartment");
+            const response = await fetch(`${API_CONFIG.baseUrl}/apartment`);
             const apartments = await response.json();
 
             roomGrid.innerHTML = ""; // Limpiar los que estaban quemados en el HTML
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 🔹 Cargar fotos de un apartamento
     async function loadApartmentPhotos(apartmentId, imgElement) {
         try {
-            const response = await fetch(`http://localhost:3000/apartment/${apartmentId}/photos`);
+            const response = await fetch(`${API_CONFIG.baseUrl}/apartment/${apartmentId}/photos`);
             if (!response.ok) return; // Si no hay fotos, queda el placeholder
 
             const photos = await response.json();
