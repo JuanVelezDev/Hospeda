@@ -11,6 +11,19 @@ form.addEventListener("submit", async (e) => {
     const phone = document.getElementById("phone").value;
     const role = document.getElementById("role").value;
 
+    // Mostrar alerta de carga
+    Swal.fire({
+        title: 'Creando Cuenta...',
+        text: 'Por favor espera mientras procesamos tu registro',
+        icon: 'info',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
     try {
         const res = await fetch("http://localhost:3000/auth/register", {
             method: "POST",
@@ -21,17 +34,35 @@ form.addEventListener("submit", async (e) => {
         const data = await res.json();
 
         if (res.ok) {
-            messageEl.style.color = "green";
-            messageEl.textContent = "✅ Registro exitoso. Redirigiendo al login...";
+            // Cerrar alerta de carga y mostrar éxito
+            Swal.fire({
+                icon: 'success',
+                title: '¡Registro Exitoso!',
+                text: 'Tu cuenta ha sido creada. Redirigiendo al login...',
+                timer: 1500,
+                showConfirmButton: false
+            });
             setTimeout(() => window.location.href = "login.html", 1500);
         } else {
-            messageEl.style.color = "red";
-            messageEl.textContent = "❌ " + data.message;
+            // Cerrar alerta de carga y mostrar error
+            Swal.fire({
+                icon: 'error',
+                title: 'Error de Registro',
+                text: data.message || 'Hubo un problema al crear tu cuenta',
+                confirmButtonColor: '#ff4757',
+                confirmButtonText: 'Intentar de Nuevo'
+            });
         }
 
     } catch (err) {
-        messageEl.style.color = "red";
-        messageEl.textContent = "Error de conexión con el servidor.";
+        // Cerrar alerta de carga y mostrar error de conexión
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de Conexión',
+            text: 'No se pudo conectar con el servidor. Verifica tu conexión a internet.',
+            confirmButtonColor: '#ff4757',
+            confirmButtonText: 'Intentar de Nuevo'
+        });
         console.error(err);
     }
 });

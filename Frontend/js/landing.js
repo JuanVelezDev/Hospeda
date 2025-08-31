@@ -22,8 +22,15 @@ function getUserRole() {
 
 // Función para mostrar mensaje de acceso denegado
 function showAccessDeniedMessage(message) {
-    alert(message);
-    redirectToLogin();
+    Swal.fire({
+        icon: "error",
+        title: "Acceso Denegado",
+        text: message,
+        confirmButtonColor: '#ff4757',
+        confirmButtonText: 'Entendido'
+    }).then((result) => {
+        redirectToLogin();
+    });
 }
 
 // Función para manejar el clic en "Buscar Habitaciones"

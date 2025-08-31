@@ -27,8 +27,21 @@ function updateUserInterface() {
 
 // Función para logout
 function logout() {
-    localStorage.removeItem("user");
-    window.location.reload();
+    Swal.fire({
+        title: '¿Cerrar Sesión?',
+        text: '¿Estás seguro de que quieres cerrar sesión?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#ff4757',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sí, Cerrar Sesión',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem("user");
+            window.location.reload();
+        }
+    });
 }
 
 // Función para verificar si el usuario está logueado

@@ -72,8 +72,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Funcionalidad del botón de logout
     logoutBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        localStorage.removeItem("user");
-        window.location.href = "../../index.html";
+        Swal.fire({
+            title: '¿Cerrar Sesión?',
+            text: '¿Estás seguro de que quieres cerrar sesión?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#ff4757',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Sí, Cerrar Sesión',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.removeItem("user");
+                window.location.href = "../../index.html";
+            }
+        });
     });
 
     // Funcionalidad del logo para redirigir al landing page
