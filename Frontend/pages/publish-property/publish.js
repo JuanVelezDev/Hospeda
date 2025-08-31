@@ -15,8 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // Verificar que el usuario sea un owner
             if (userData.role !== "owner") {
-                alert("Acceso denegado. Solo los propietarios pueden acceder a esta página.");
-                window.location.href = '../../index.html';
+                Swal.fire({
+                    icon: "error",
+                    title: "Acceso Denegado",
+                    text: "Solo los propietarios pueden acceder a esta página.",
+                    confirmButtonColor: '#ff4757',
+                    confirmButtonText: 'Entendido'
+                }).then((result) => {
+                    window.location.href = '../../index.html';
+                });
                 return;
             }
             
@@ -42,10 +49,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event for logout button
     logoutBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        // Clear user session from localStorage
-        localStorage.removeItem("user");
-        // Redirect to main landing page
-        window.location.href = '../../index.html';
+        Swal.fire({
+            title: '¿Cerrar Sesión?',
+            text: '¿Estás seguro de que quieres cerrar sesión?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#ff4757',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Sí, Cerrar Sesión',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Clear user session from localStorage
+                localStorage.removeItem("user");
+                // Redirect to main landing page
+                window.location.href = '../../index.html';
+            }
+        });
     });
     
     // Event for choose files button

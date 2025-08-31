@@ -42,6 +42,32 @@ body {
   gap: 10px;
 }
 
+/* Estilos para el botón de logout */
+.profile .fas.fa-sign-out-alt {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: color 0.3s ease;
+  color: #666;
+  font-size: 16px;
+}
+
+.profile .fas.fa-sign-out-alt:hover {
+  color: #ff4757;
+}
+
+/* Estilos para el nombre del usuario */
+.profile span {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Estilos para el icono de usuario */
+.profile .fa-solid.fa-user {
+  color:  #000000;
+  font-size: 16px;
+}
+
 .dashboard {
   padding: 20px 40px;
 }
