@@ -1,17 +1,17 @@
 {
-  "name": "backend",
+  "name": "hospeda",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "Plataforma de alojamiento estudiantil",
+  "main": "Backend/app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "node app.js"
+    "start": "node Backend/app.js",
+    "dev": "node Backend/app.js",
+    "build": "echo 'Build completed'"
   },
-  "keywords": [],
+  "keywords": ["hospedaje", "estudiantes", "alojamiento"],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
