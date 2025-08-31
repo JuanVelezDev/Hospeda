@@ -120,7 +120,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const description = document.getElementById('description').value.trim();
 
         if (!title || !neighborhood || !price || !address || !description) {
-            alert('Por favor, completa todos los campos obligatorios.');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campos Incompletos',
+                text: 'Por favor, completa todos los campos obligatorios.',
+                confirmButtonColor: '#ff4757',
+                confirmButtonText: 'Entendido'
+            });
             return;
         }
 
@@ -164,17 +170,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            alert('¡Propiedad publicada exitosamente!');
-            form.reset();
-            selectedFiles = [];
-            const uploadText = uploadArea.querySelector('h3');
-            uploadText.textContent = 'Subir imágenes de la propiedad';
-            uploadArea.style.borderColor = '#d1d5db';
-            uploadArea.style.backgroundColor = '#f9fafb';
+            Swal.fire({
+                icon: 'success',
+                title: '¡Propiedad Publicada Exitosamente!',
+                text: 'Tu propiedad ha sido publicada y está disponible para los estudiantes.',
+                confirmButtonColor: '#10b981',
+                confirmButtonText: 'Aceptar',
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: true
+            }).then((result) => {
+                form.reset();
+                selectedFiles = [];
+                const uploadText = uploadArea.querySelector('h3');
+                uploadText.textContent = 'Subir imágenes de la propiedad';
+                uploadArea.style.borderColor = '#d1d5db';
+                uploadArea.style.backgroundColor = '#f9fafb';
+            });
 
         } catch (error) {
             console.error("❌ Error publicando:", error);
-            alert("Hubo un error publicando la propiedad.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al Publicar',
+                text: 'Hubo un error publicando la propiedad. Por favor, intenta nuevamente.',
+                confirmButtonColor: '#ff4757',
+                confirmButtonText: 'Entendido'
+            });
         }
     });
 });
