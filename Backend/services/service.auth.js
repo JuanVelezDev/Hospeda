@@ -1,5 +1,5 @@
-import { Router } from "express";
-import db from "../db.js";
+const { Router } = require("express");
+const db = require("../db.js");
 
 const router = Router();
 
@@ -53,4 +53,4 @@ router.post("/login", async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;

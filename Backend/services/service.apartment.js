@@ -1,8 +1,8 @@
-import { Router } from "express";
-import db from "../db.js";
-import upload from "../Middlewares/upload.js";
-import cloudinary from "../config/cloudinary.js";
-import streamifier from "streamifier";
+const { Router } = require("express");
+const db = require("../db.js");
+const upload = require("../Middlewares/upload.js");
+const cloudinary = require("../config/cloudinary.js");
+const streamifier = require("streamifier");
 
 const router = Router();
 
@@ -115,4 +115,4 @@ router.delete('/:id', async (req, res) => {
 
 
 
-export default router;
+module.exports = router;

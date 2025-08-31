@@ -1,5 +1,4 @@
-import pkg from "pg";
-const { Pool } = pkg;
+const { Pool } = require("pg");
 
 const db = new Pool({
     host: "aws-1-us-east-2.pooler.supabase.com",
@@ -10,4 +9,4 @@ const db = new Pool({
     ssl: { rejectUnauthorized: false } 
 });
 
-export default db;
+module.exports = db;
