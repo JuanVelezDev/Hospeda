@@ -10,6 +10,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Ruta de prueba para verificar que el backend funciona
+app.get("/api/test", (req, res) => {
+    res.json({ 
+        message: "Backend funcionando correctamente", 
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
+
 // Rutas
 app.use("/users", usersService);
 app.use("/apartment", apartmentService);
