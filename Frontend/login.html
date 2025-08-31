@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HospedaYa</title>
+    <link rel="stylesheet" href="./styles/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <main>
+        <div class="login-container">
+            <div class="back-link">
+                <a href="index.html">← Volver al inicio</a>
+            </div>
+            <h1 class="login-title">Login</h1>
+            <form id="loginForm" class="login-form">
+                <input type="email" id="email" name="email" required placeholder="Email" class="email-input">
+                <input type="password" id="password" name="password" required placeholder="Password"
+                    class="password-input">
+                <button type="submit" class="login-button">Login</button>
+            </form>
+            <p id="message" class="message"></p>
+            <p class="register-link">
+                ¿No tienes cuenta? <a href="register.html">Regístrate aquí</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HospedaYa - Encuentra Tu Habitación Estudiantil Perfecta</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1><a href="index.html" class="logo-link">HospedaYa</a></h1>
+            </div>
+                         
+             </nav>
+             <div class="user-actions">
+                 <!-- Los botones se cargarán dinámicamente según el estado de autenticación -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+                         <div class="hero-text">
+                 <h1 class="hero-title">Encuentra Tu Habitación Estudiantil Perfecta Cerca de ti</h1>
+                 <p class="hero-description">Descubre habitaciones asequibles y cómodas a poca distancia de tu universidad. Propiedades seguras y verificadas para estudiantes.</p>
+                
+            </div>
+            <div class="hero-illustration">
+                <div class="illustration-frame">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=500&h=400&fit=crop" alt="University Building">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Sections -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-card cta-find">
+                <div class="cta-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                                 <h3>Encuentra Tu Habitación</h3>
+                 <p>Explora cientos de habitaciones estudiantiles verificadas cerca de tu campus. Filtra por precio, comodidades y ubicación.</p>
+                 <button class="cta-btn cta-btn-white" id="searchRoomsBtn">Buscar Habitaciones</button>
+            </div>
+            <div class="cta-card cta-list">
+                <div class="cta-icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                                 <h3>Publica Tu Propiedad</h3>
+                 <p>¿Tienes una habitación disponible? Gana ingresos extra alquilando a otros estudiantes. Configuración rápida y pagos seguros.</p>
+                 <button class="cta-btn cta-btn-white" id="publishPropertyBtn">Publicar Propiedad</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured-section">
+        <div class="featured-container">
+                         <h2 class="featured-title">Propiedades Destacadas</h2>
+             <p class="featured-subtitle">Descubre los alojamientos estudiantiles más populares cerca de tu campus</p>
+            
+            <div class="properties-grid">
+                <!-- Property Card 1 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=250&fit=crop" alt="Cozy Studio Near Campus">
+                    </div>
+                    <div class="property-info">
+                                                 <h3 class="property-title">Estudio Acogedor Cerca del Campus</h3>
+                         <div class="property-price">$650</div>
+                         <div class="property-location">
+                             <i class="fas fa-map-marker-alt"></i>
+                             Distrito Universitario
+                         </div>
+                         <div class="property-amenities">
+                             <span class="amenity"><i class="fas fa-bed"></i> 1 cama</span>
+                             <span class="amenity"><i class="fas fa-bath"></i> 1 baño</span>
+                             <span class="amenity"><i class="fas fa-wifi"></i> WIFI</span>
+                         </div>
+                         <button class="property-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=250&fit=crop" alt="Shared Apartment">
+                    </div>
+                    <div class="property-info">
+                                                 <h3 class="property-title">Apartamento Compartido</h3>
+                         <div class="property-price">$450</div>
+                         <div class="property-location">
+                             <i class="fas fa-map-marker-alt"></i>
+                             Centro de la Ciudad
+                         </div>
+                         <div class="property-amenities">
+                             <span class="amenity"><i class="fas fa-bed"></i> 1 cama</span>
+                             <span class="amenity"><i class="fas fa-bath"></i> 2 baños</span>
+                             <span class="amenity"><i class="fas fa-users"></i> 3 compañeros</span>
+                         </div>
+                         <button class="property-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=250&fit=crop" alt="Private Room">
+                    </div>
+                    <div class="property-info">
+                                                 <h3 class="property-title">Habitación Privada</h3>
+                         <div class="property-price">$580</div>
+                         <div class="property-location">
+                             <i class="fas fa-map-marker-alt"></i>
+                             Área del Campus
+                         </div>
+                         <div class="property-amenities">
+                             <span class="amenity"><i class="fas fa-bed"></i> 1 cama</span>
+                             <span class="amenity"><i class="fas fa-bath"></i> 1 baño</span>
+                             <span class="amenity"><i class="fas fa-parking"></i> Estacionamiento</span>
+                         </div>
+                         <button class="property-btn">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <script src="js/auth.js"></script>
+    <script src="js/landing.js"></script>
+</body>
+</html>

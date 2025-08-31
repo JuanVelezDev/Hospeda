@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Propiedad - hospedaYa</title>
+    <link rel="stylesheet" href="publish.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+        <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="../../index.html" style="text-decoration: none; color: inherit;">HospedaYa</a></h2>
+            </div>
+            <div class="nav-links">
+                <a href="../owner-dashboard/owner_dashboard.html" class="nav-link">Mis Propiedades</a>
+                <a href="#" class="nav-link active">Publicar Propiedad</a>
+               
+            </div>
+            <div class="nav-user">
+                <div class="user-info">
+                    <i class="fas fa-user"></i>
+                    <span>John Smith</span>
+                </div>
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="form-header">
+                <h1>Publica tu Propiedad</h1>
+                <p>Lista tu alojamiento para estudiantes</p>
+            </div>
+
+            <form class="property-form">
+                <div class="form-group">
+                    <label for="property-title">Título de la Propiedad</label>
+                    <input type="text" id="property-title" placeholder="ej., Habitación acogedora cerca del Campus Universitario">
+                </div>
+
+                <div class="form-group">
+                    <label for="neighborhood">Barrio</label>
+                    <select id="neighborhood">
+                        <option value="">Seleccionar barrio</option>
+                        <option value="centro">Laureles</option>
+                        <option value="norte">Aranjuez</option>
+                        <option value="sur">Belen</option>
+                        <option value="este">Estadio</option>
+                        <option value="oeste">Guayabal</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="monthly-price">Precio Mensual</label>
+                    <input type="text" id="monthly-price" value="$ 800">
+                </div>
+
+                <div class="form-group">
+                    <label for="full-address">Dirección Completa</label>
+                    <input type="text" id="full-address" value="123 Main Street, Apt 4B">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <textarea id="description" rows="6" placeholder="Describe tu propiedad, amenidades, instalaciones cercanas y qué la hace especial para estudiantes..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Imágenes de la Propiedad</label>
+                    <div class="image-upload">
+                        <div class="upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>Subir imágenes de la propiedad</h3>
+                            <p>Arrastra y suelta imágenes aquí, o haz clic para explorar</p>
+                            <button type="button" class="choose-files-btn">Elegir Archivos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Amenidades</label>
+                    <div class="amenities-grid">
+                        <div class="amenity-item">
+                            <input type="checkbox" id="wifi" name="amenities" value="wifi">
+                            <label for="wifi">WiFi</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="parking" name="amenities" value="parking">
+                            <label for="parking">Estacionamiento</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="security" name="amenities" value="security">
+                            <label for="security">Seguridad</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="kitchen" name="amenities" value="kitchen">
+                            <label for="kitchen">Cocina</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="air-conditioning" name="amenities" value="air-conditioning">
+                            <label for="air-conditioning">Aire Acondicionado</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="study-area" name="amenities" value="study-area">
+                            <label for="study-area">Área de Estudio</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Publicar Propiedad
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="publish.js"></script>
+</body>
+</html>

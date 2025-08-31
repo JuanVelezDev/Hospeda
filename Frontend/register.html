@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./styles/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="register-body">
+    <main>
+        <div class="register-container">
+            <div class="back-link">
+                <a href="index.html">← Volver al inicio</a>
+            </div>
+            <h1 class="register-title">Register</h1>
+            <form id="registerForm" class="register-form">
+                <input type="text" id="first_name" name="first_name" required placeholder="First name"
+                    class="input-register"><br>
+                <input type="text" id="last_name" name="last_name" placeholder="Last name" class="input-register"><br>
+                <input type="email" id="email" name="email" required placeholder="Email" class="input-register"><br>
+                <input type="password" id="password" name="password" required placeholder="Password"
+                    class="input-register"><br>
+                <input type="text" id="phone" name="phone" placeholder="Phone" class="input-register"><br>
+
+                <label for="role">Register as:</label>
+                <select id="role" name="role" required>
+                    <option value="student">Student</option>
+                    <option value="owner">Owner</option>
+                </select><br>
+
+                <button type="submit" class="register-button">Register</button>
+            </form>
+            <p id="message" class="message"></p>
+            <p class="login-link">
+                ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- script externo -->
+    <script src="./js/register.js"></script>
+</body>
+
+</html>
