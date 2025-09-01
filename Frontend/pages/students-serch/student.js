@@ -45,6 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // 🔹 Cargar fotos de cada apartamento
                 loadApartmentPhotos(apartment.apartment_id, card.querySelector(".room-image img"));
+
+                const detailsBtn = card.querySelector(".view-details-btn");
+                detailsBtn.addEventListener("click", () => {
+                    localStorage.setItem("apartmentId", apartment.apartment_id);
+                    window.location.href = "../property-description/property_description.html";
+                });
             });
         } catch (error) {
             console.error("Error cargando apartamentos:", error);

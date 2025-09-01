@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const chooseFilesBtn = document.querySelector('.choose-files-btn');
     const fileInput = document.createElement('input');
     const logoutBtn = document.querySelector('.logout-btn');
-    
+    const user = localStorage.getItem("user");
     // Función para obtener y mostrar el nombre del usuario logueado
     function displayUserName() {
-        const user = localStorage.getItem("user");
+        
         const userNameElement = document.querySelector('.nav-user .user-info span');
         
         if (user) {
+            
             const userData = JSON.parse(user);
             
             // Verificar que el usuario sea un owner
@@ -110,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    const userData = user ? JSON.parse(user) : null; 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -130,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    user_id: 1, // ⚡ Cambia por el ID real del usuario logueado
+                    user_id: userData.id, // ⚡ Cambia por el ID real del usuario logueado
                     title,
                     description,
                     address,

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cozy Student Room Near University · hospedaYa</title>
+  <title>Property · hospedaYa</title>
 
   <!-- Font / Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="property_description.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="property_description.css">
 </head>
+
 <body>
 
   <!-- Header -->
@@ -17,21 +19,21 @@
     <div class="nav">
       <div class="brand">hospedaYa</div>
       <div class="links">
-        <a href="#"><i class=></i> Search Rooms</a>
-        <a href="#"><i class=></i> Publish Property</a>
+        <a href="students.html"><i class="fa-solid fa-magnifying-glass"></i> Search Rooms</a>
+        <a href="publish_property.html"><i class="fa-solid fa-plus"></i> Publish Property</a>
       </div>
       <div class="spacer"></div>
       <a class="icon-btn" href="#" aria-label="Favorites"><i class="fa-regular fa-heart"></i></a>
       <a class="icon-btn" href="#" aria-label="Notifications"><i class="fa-regular fa-bell"></i></a>
-      <a class="icon-btn" href="#" aria-label="Profile"><i class="fa-regular fa-user"></i></a>
+      <a class="icon-btn" href="profile.html" aria-label="Profile"><i class="fa-regular fa-user"></i></a>
     </div>
   </header>
 
   <main class="container">
 
-    <!-- Hero image (carousel placeholder) -->
+    <!-- Hero image -->
     <div class="hero">
-      <img src="../images/property_description/th.outside1888x823.66ff5f853b76a_infocdn__gal6ipz2hcmkjrdzevxcqoxwykogsy4s0ddyheyljpg.jpg" alt="Property photo">
+      <img id="heroImg" src="../images/property_description/placeholder.jpg" alt="Property photo">
     </div>
 
     <div class="grid">
@@ -39,102 +41,58 @@
       <section>
         <div class="title-row">
           <div>
-            <h1 class="title">Cozy Student Room Near University</h1>
-            <div class="price" style="display:none">$650/month</div>
-            <div class="address"><i class="fa-solid fa-location-dot"></i> University District, Downtown</div>
+            <h1 id="title" class="title">Loading...</h1>
+            <div id="price" class="price" style="display:none"></div>
+            <div id="address" class="address"><i class="fa-solid fa-location-dot"></i></div>
           </div>
-          <div class="published">Published 3 days ago</div>
+          <div id="published" class="published">Published ...</div>
         </div>
 
-        <div class="description">
-          <p>
-            Perfect for students! This bright and spacious room is located just 10 minutes walk from the university
-            campus. The room comes fully furnished with a comfortable bed, study desk, wardrobe, and high-speed internet.
-            You’ll share common areas with 2 other friendly students in a clean and quiet environment.
-          </p>
-          <p style="margin-top:10px">
-            Amenities include shared kitchen, laundry facilities, parking space, and 24/7 security. The neighborhood is safe and
-            well-connected with public transport, grocery stores, cafés, and restaurants within walking distance.
-          </p>
+        <div class="description" id="description">
+          <p>Loading property description...</p>
         </div>
 
         <div class="section">
           <h3>Features</h3>
-          <div class="features">
-            <div class="chip"><i class="fa-solid fa-wifi"></i> High-speed WiFi</div>
-            <div class="chip"><i class="fa-solid fa-couch"></i> Furnished</div>
-            <div class="chip"><i class="fa-solid fa-car"></i> Parking</div>
-            <div class="chip"><i class="fa-solid fa-shield-halved"></i> 24/7 Security</div>
-            <div class="chip"><i class="fa-solid fa-kitchen-set"></i> Shared Kitchen</div>
-            <div class="chip"><i class="fa-solid fa-shirt"></i> Laundry</div>
+          <div id="features" class="features">
+            <!-- Chips dinámicos -->
           </div>
         </div>
 
         <!-- Reviews -->
-        <div class="section reviews">
+        <div class="section reviews" id="reviewsSection" style="display:none">
           <div class="score">
-            <div class="big">4.9</div>
+            <div id="avgScore" class="big">-</div>
             <div>
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
-              </div>
-              <div class="based">Based on 23 reviews</div>
+              <div id="stars" class="stars"></div>
+              <div id="based" class="based"></div>
             </div>
           </div>
-
-          <article class="review">
-            <img class="r-avatar" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=200&auto=format&fit=crop" alt="">
-            <div>
-              <div class="name">Jhon conor</div>
-              <div class="stars" aria-hidden="true">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </div>
-            </div>
-            <div class="when">2 weeks ago</div>
-            
-          </article>
-
-          <article class="review">
-            <img class="r-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="">
-            <div>
-              <div class="name">Mike Chen</div>
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-              </div>
-            </div>
-            <div class="when">1 month ago</div>
-          </article>
-
-          <article class="review">
-            <img class="r-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="">
-            <div>
-              <div class="name">Emma Rodríguez</div>
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-              </div>
-            </div>
-            <div class="when">2 months ago</div>
-          </article>
-
+          <div id="reviewsList"></div>
         </div>
       </section>
 
       <!-- Right column (sidebar) -->
       <aside>
         <div class="side-card">
-          <div class="price">$650/month</div>
-          <button class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Reserve Now</button>
+          <div id="sidePrice" class="price">$ - /month</div>
 
-          <div class="owner">
-            <img class="avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=200&auto=format&fit=crop" alt="">
+          <label>Check-in</label>
+          <input type="date" id="checkIn" required>
+
+          <label>Check-out</label>
+          <input type="date" id="checkOut" required>
+
+          <button id="reserveBtn" class="btn btn-primary">
+            <i class="fa-solid fa-calendar-check"></i> Reserve Now
+          </button>
+
+          <div class="owner" id="ownerCard">
+            <img class="avatar" src="https://via.placeholder.com/60" alt="">
             <div>
-              <div style="font-weight:700">John Martinez</div>
+              <div style="font-weight:700" id="ownerName">Owner</div>
               <small>Property Owner</small>
-              <div class="rating"><i class="fa-solid fa-star"></i> 4.9 · 23 reviews</div>
+              <div class="rating"><i class="fa-solid fa-star"></i> <span id="ownerRating">-</span></div>
             </div>
           </div>
         </div>
@@ -170,5 +128,7 @@
     <div class="foot-bottom">© 2025 hospedaYa. All rights reserved.</div>
   </footer>
 
+  <script src="property_description.js"></script>
 </body>
+
 </html>
