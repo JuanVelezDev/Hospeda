@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
         res.json({
             message: "Login exitoso",
             user: {
-                id: user.user_id,
+                id: user.user_id,          // 🔹 ID correcto del propietario
                 email: user.email,
                 role: user.role,
                 name: `${user.first_name} ${user.last_name}`

@@ -13,6 +13,17 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await db.query("SELECT user_id, first_name || ' ' || last_name AS name, email, role FROM users WHERE user_id=$1", [id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "Usuario no encontrado" });
+        res.json(result.rows[0]);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // POST user
 router.post("/", async (req, res) => {
     const { first_name, last_name, email, password, role, phone } = req.body;

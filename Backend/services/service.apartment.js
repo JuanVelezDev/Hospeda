@@ -7,39 +7,43 @@ import streamifier from "streamifier";
 const router = Router();
 
 // GET apartments
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
     try {
-        const { rows } = await db.query('SELECT * FROM apartment');
+        const { rows } = await db.query("SELECT * FROM apartment");
         res.json(rows);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
+// GET apartment by id
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { rows } = await db.query("SELECT * FROM apartment WHERE apartment_id = $1", [id]);
+        if (rows.length === 0) return res.status(404).json({ message: "Apartamento no encontrado" });
+        res.json(rows[0]);
+    } catch (err) {
+        res.status(500).json({ error: "Error obteniendo apartamento" });
+    }
+});
+
 // GET fotos de un apartamento
 router.get("/:apartment_id/photos", async (req, res) => {
     const { apartment_id } = req.params;
-
     try {
         const result = await db.query(
             "SELECT photo_id, apartment_id, photo_url, description FROM apartment_photo WHERE apartment_id = $1",
             [apartment_id]
         );
-
-        if (result.rows.length === 0) {
-            return res.status(404).json({ message: "No se encontraron fotos para este apartamento" });
-        }
-
         res.json(result.rows);
     } catch (err) {
-        console.error(err);
         res.status(500).json({ error: "Error obteniendo las fotos" });
     }
 });
 
-
 // ADD apartment
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
     const { user_id, title, description, address, city, price } = req.body;
     try {
         const result = await db.query(
@@ -48,7 +52,6 @@ router.post('/', async (req, res) => {
         );
         res.json({ apartment_id: result.rows[0].apartment_id });
     } catch (err) {
-        console.error("❌ Error creando apartamento:", err);
         res.status(500).json({ error: "Error creando apartamento" });
     }
 });
@@ -65,7 +68,7 @@ router.post("/:apartment_id/photo", upload.single("photo"), async (req, res) => 
             new Promise((resolve, reject) => {
                 const stream = cloudinary.uploader.upload_stream(
                     { folder: "apartments" },
-                    (error, result) => result ? resolve(result) : reject(error)
+                    (error, result) => (result ? resolve(result) : reject(error))
                 );
                 streamifier.createReadStream(fileBuffer).pipe(stream);
             });
@@ -80,12 +83,12 @@ router.post("/:apartment_id/photo", upload.single("photo"), async (req, res) => 
 
         res.json({ photo: dbResult.rows[0] });
     } catch (err) {
-        console.error("❌ Error subiendo foto:", err);
         res.status(500).json({ error: "Error subiendo la foto" });
     }
 });
+
 // UPDATE apartment
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
     const { id } = req.params;
     const { user_id, title, description, address, city, price } = req.body;
     try {
@@ -101,7 +104,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE apartment
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
     const { id } = req.params;
     try {
         const result = await db.query('DELETE FROM apartment WHERE apartment_id=$1', [id]);
@@ -111,8 +114,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-
-
 
 export default router;
